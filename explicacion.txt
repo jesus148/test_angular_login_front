@@ -16,6 +16,16 @@ donde me quede > 3:26:11
 
 
 
+
+----- clonando
+
+> npm install
+> en caso instalar cierta depedencias manualmente
+> ng serve -o
+
+
+
+
 -----dependencias
 
 >   npm i bootstrap@5.3.3
