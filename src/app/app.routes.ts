@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { Login2Component } from './components/login2/login2.component';
 
 
 
@@ -23,6 +24,7 @@ export const routes: Routes = [
   {path:'login' , component: LoginComponent},
   {path:'singIn' , component: SignInComponent},
   {path:'dashboard' , component: DashboardComponent},
+  {path:'login2' , component: Login2Component},
 
 
   // cuando escriben cualquier url q no existe

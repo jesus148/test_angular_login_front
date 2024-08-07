@@ -141,6 +141,17 @@ CREATE src/app/utils/add-token.interceptor.ts (158 bytes)
 
 
 
+----------------guard creando -------------------
+
+PS C:\Users\JesúsArgelHuamanAnge\Desktop\Marco\angular\1_ejercisio\front\test_angular_login_front>  ng generate guard services/guards/is-logeed
+? Which type of guard would you like to create? CanActivate
+CREATE src/app/services/guards/is-logeed.guard.spec.ts (495 bytes)
+CREATE src/app/services/guards/is-logeed.guard.ts (137 bytes)
+
+
+
+
+
 
 
 ------------ material angular ----------------
@@ -205,3 +216,12 @@ Install :
 > app.config.ts
    import { provideToastr } from 'ngx-toastr';
     provideToastr({}),
+
+
+
+
+-------- eliminar un comonente u otro elemento creado con el cli Angular
+
+> eliminalo de forma manual
+> luego en aparezca en el app.material.module  la importacion  eliminala tambien
+> app.module.ts : en caso tengas ese file lo eliminas tambien
