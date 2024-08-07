@@ -1,0 +1,51 @@
+
+<!-- barra de navegacion -->
+
+<div class="wrapper">
+  <!-- *ngIf="!loading"  : esto se mostrar cuando el icono de carga se false -->
+  <div  *ngIf="!loading" class="body">
+
+    <img class="logo"
+    src="assets/images/login.png"
+     alt="alt login ">
+    <h3> Registrar usuario </h3>
+    <div class="form-floating mb-3 mt-3">
+      <!-- [(ngModel)]: pa usar se debe importar del material.angular y este controller -->
+      <input type="text" class="form-control"  [(ngModel)]="username" placeholder="ingrese su usuario">
+      <label >usuario</label>
+    </div>
+    <div class="form-floating mb-3">
+      <input type="password" class="form-control"  [(ngModel)]="password" placeholder="ingrese su password">
+      <label >password</label>
+    </div>
+
+    <div class="form-floating mb-3">
+      <input type="password" class="form-control" [(ngModel)]="confirmPassoword"  placeholder="ingrese su password de nuevo">
+      <label >Repetir Password</label>
+    </div>
+
+
+    <div class="d-grid gap-2 mb-3">
+      <button type="button" class="btn btn-success btn-lg"
+      (click)="addUser()" >Registrar</button>
+    </div>
+
+
+
+      <!-- recordar importar en el ts de este componente routerlink -->
+      <!-- routerLink]="['/login']" : 1 forma de moverse dentro de componente en el html  -->
+       <a [routerLink]="['/login']">Ingresar</a>
+
+
+  </div>
+
+
+
+
+  <!-- forma de agregar un componente dentro de otro  -->
+<!-- icono de carga en si es un componente -->
+<!-- ngIf="loading" : variable en el controller verifica si se muestra o no  -->
+  <app-spinner *ngIf="loading"></app-spinner>
+
+</div>
+

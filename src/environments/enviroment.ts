@@ -1,0 +1,6 @@
+
+// conectar backend
+export const environment = {
+  production: false,
+  endpoint: 'http://localhost:3001/'
+};

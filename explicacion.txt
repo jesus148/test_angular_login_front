@@ -1,0 +1,197 @@
+
+https://www.youtube.com/watch?v=XXMczd98pTY&lc=UgyawFLw5r7ySKIyzBd4AaABAg
+donde me quede > 3:26:11
+
+
+
+
+-------iniciando ---
+>  ng new FRONTEND
+> ng serve
+   ejecuta el proyecto
+   ojo: usar gitbash aparte para ejecutar
+
+> ng g --help -- muesta ayuda para crear cosas en angular
+> ng --help   ----> ayuda en general
+
+
+
+-----dependencias
+
+>   npm i bootstrap@5.3.3
+
+>   angular.json >
+    "styles": [
+    "src/styles.css",
+     "node_modules/bootstrap/dist/css/bootstrap.min.css" ---- agrega esto
+      ],
+
+
+
+
+
+---- files estaticos > algunas versiones de angular tienden a cambiar las rutas o creacion de los proyectos
+     angular 19
+     > public\assets\images
+       pone todo lo estatico
+
+    >  angular.json
+        "assets": [
+                               {
+                "glob": "**/*",
+                "input": "public"
+              },
+              {
+                "glob": "**/*",
+                "input": "src/assets",
+                "output": "/assets"
+              }] ,
+
+
+
+
+
+
+----componentes
+
+> recordar las carpeta se crean manual o pon cli
+tip : si esta corriendo el proyecto angular >
+  abrir otra terminal para aparte para crear componentes mientras se ejecuta
+
+>
+PS C:\Users\jesus\Desktop\JESUS\ANGULAR\angular_1\front\frontend> ng g c components/login
+CREATE src/app/components/login/login.component.html (21 bytes)
+CREATE src/app/components/login/login.component.spec.ts (608 bytes)
+CREATE src/app/components/login/login.component.ts (242 bytes)
+CREATE src/app/components/login/login.component.css (0 bytes)
+
+PS C:\Users\jesus\Desktop\JESUS\ANGULAR\angular_1\front\frontend> ng g c components/signIn
+CREATE src/app/components/sign-in/sign-in.component.html (23 bytes)
+CREATE src/app/components/sign-in/sign-in.component.spec.ts (616 bytes)
+CREATE src/app/components/sign-in/sign-in.component.ts (249 bytes)
+CREATE src/app/components/sign-in/sign-in.component.css (0 bytes)
+
+PS C:\Users\jesus\Desktop\JESUS\ANGULAR\angular_1\front\frontend> ng g c components/dashboard
+CREATE src/app/components/dashboard/dashboard.component.html (25 bytes)
+CREATE src/app/components/dashboard/dashboard.component.spec.ts (636 bytes)
+CREATE src/app/components/dashboard/dashboard.component.ts (258 bytes)
+CREATE src/app/components/dashboard/dashboard.component.css (0 bytes)
+
+PS C:\Users\jesus\Desktop\JESUS\ANGULAR\angular_1\front\frontend> ng g c components/navbar
+CREATE src/app/components/navbar/navbar.component.html (22 bytes)
+CREATE src/app/components/navbar/navbar.component.spec.ts (615 bytes)
+CREATE src/app/components/navbar/navbar.component.ts (246 bytes)
+CREATE src/app/components/navbar/navbar.component.css (0 bytes)
+PS C:\Users\jesus\Desktop\JESUS\ANGULAR\angular_1\front\frontend>
+
+PS C:\Users\jesus\Desktop\JESUS\ANGULAR\angular_1\front\frontend> ng g c shared/spinner
+CREATE src/app/shared/spinner/spinner.component.html (23 bytes)
+CREATE src/app/shared/spinner/spinner.component.spec.ts (622 bytes)
+CREATE src/app/shared/spinner/spinner.component.ts (250 bytes)
+CREATE src/app/shared/spinner/spinner.component.css (0 bytes)
+
+
+> usamos la bd rrhh en el mysql
+
+
+
+
+
+
+------------------------servicios
+----ojo > ---skip --test (o algo asi es para eliminar los files .test q se crean por defecto) = para los componentes
+
+PS C:\Users\jesus\Desktop\JESUS\ANGULAR\angular_1\front\frontend> ng g s services/user
+
+PS C:\Users\jesus\Desktop\JESUS\ANGULAR\angular_1\front\frontend> ng g s services/error
+CREATE src/app/services/error.service.spec.ts (368 bytes)
+CREATE src/app/services/error.service.ts (143 bytes)
+
+> services si crear files .test
+PS C:\Users\jesus\Desktop\JESUS\ANGULAR\angular_1\front\frontend> ng g s services/product --skip-tests
+CREATE src/app/services/product.service.ts (145 bytes)
+
+
+
+
+
+
+---------- interceptores par token
+ osea si pide una peticion y existe un token se le asigna auto pa q no se logue otra vez
+
+PS C:\Users\jesus\Desktop\JESUS\ANGULAR\angular_1\front\frontend> ng g interceptor utils/addToken
+CREATE src/app/utils/add-token.interceptor.spec.ts (510 bytes)
+CREATE src/app/utils/add-token.interceptor.ts (158 bytes)
+
+
+
+
+
+
+
+
+
+
+
+------------ material angular ----------------
+
+> agregar file : app.material.component
+
+
+> instalar mediante el CLI
+PS C:\Users\jesus\Desktop\JESUS\ANGULAR\angular_1\front\frontend> ng add @angular/material --skip-confirmation
+✔ Determining Package Manager
+  › Using package manager: npm
+✔ Searching for compatible package version
+  › Found compatible package version: @angular/material@18.1.3.
+✔ Loading package information from registry
+✔ Installing package
+? Choose a prebuilt theme name, or "custom" for a custom theme: Azure/Blue         [Preview: https://material.angular.io?theme=azure-blue]
+? Set up global Angular Material typography styles? yes
+? Include the Angular animations module? Include and enable animations
+UPDATE package.json (1157 bytes)
+✔ Packages installed successfully.
+UPDATE src/app/app.config.ts (585 bytes)
+UPDATE angular.json (3059 bytes)
+UPDATE src/index.html (549 bytes)
+UPDATE src/styles.css (261 bytes)
+
+
+
+
+
+-------------- mensajes de alert --------------------------
+
+PS C:\Users\jesus\Desktop\JESUS\ANGULAR\angular_1\front\frontend> npm install ngx-toastr --save
+
+https://github.com/scttcper/ngx-toastr (documentacion)
+
+https://www.npmjs.com/package/ngx-toastr
+
+
+Install :
+
+>  npm install ngx-toastr --save
+
+
+>  npm install @angular/animations --save
+
+> en angular.json
+               "styles": [
+              "@angular/material/prebuilt-themes/azure-blue.css",
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css" ,
+              "node_modules/ngx-toastr/toastr.css"  --- poner esto
+            ],
+
+
+>  app.material.module.ts
+      imports:[
+    CommonModule,
+    BrowserAnimationsModule, // poner esto
+    ToastrModule.forRoot(), // poner esto
+    ]
+
+> app.config.ts
+   import { provideToastr } from 'ngx-toastr';
+    provideToastr({}),
