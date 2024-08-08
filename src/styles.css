@@ -2,6 +2,13 @@
 
 /* css es para componente puente  */
 
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
 html , body {
   height: 100%;
 }

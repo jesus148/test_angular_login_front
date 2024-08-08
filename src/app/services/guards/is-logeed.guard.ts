@@ -18,12 +18,12 @@ export const isLogeedGuard: CanActivateFn = (route, state) => {
   if(loginService.islogedd) {
 
     if(loginService.usuario.role === 'ADMIN') {
-      router.navigateByUrl('/pages/home');
+      router.navigateByUrl('/dashboard');
     }
 
-    if(loginService.usuario.role === 'FINZ') {
-      router.navigateByUrl('/pages/cash-outlay');
-    }
+    // if(loginService.usuario.role === 'FINZ') {
+    //   router.navigateByUrl('/pages/cash-outlay');
+    // }
     return false;
   } else {
     // si no esta logeado entra al componente login

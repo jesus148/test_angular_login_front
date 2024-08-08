@@ -19,10 +19,12 @@ export class AddTokenInterceptor implements HttpInterceptor {
   // INTERCEPTOR
   // en versiones de angular puede variar averiguar pq
   // esto es para q cuando solicites algo en la peticion , se junto el token automatico
+//en vez de los interceptores puedes usar los guards mas recomendado
 
 
-
-  constructor(private router: Router, private _errorService: ErrorService) {}
+  constructor(private router: Router, private _errorService: ErrorService) {
+    console.log("tes");
+  }
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
 
@@ -45,4 +47,7 @@ export class AddTokenInterceptor implements HttpInterceptor {
       })
     );
   }
+
+
+
 }

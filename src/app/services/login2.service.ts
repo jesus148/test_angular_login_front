@@ -34,9 +34,9 @@ export class Login2Service {
 
 
   // metodo para entrar
-  logueo( usuario :string , contraseña : string){
+  logueo( usuario :string , password : string){
 
-   return  this.http.post(`${environment.base_url}${this.myapp}` , {usuario, contraseña})
+   return  this.http.post(`${environment.base_url}/login-wp` , {usuario, password})
   }
 
 

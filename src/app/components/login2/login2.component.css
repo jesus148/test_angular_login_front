@@ -1,8 +1,25 @@
 
 
-.container {
-  width: 50%;
+
+
+
+.contenedor{
+min-height: 100vh;
+
+display: flex;
+justify-content: center;
+align-items: center;
+
+background-image: url(../../../../public/assets/images/work.jpg);
+background-size: cover;
+
 }
 
 
 
+.contenedor_2{
+
+display: flex;
+justify-content: center;
+align-items: center;
+}

@@ -1,9 +1,10 @@
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { provideHttpClient } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { routes } from './app.routes';
 import { provideToastr } from 'ngx-toastr';
+import { AddTokenInterceptor } from './utils/add-token.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -12,6 +13,12 @@ export const appConfig: ApplicationConfig = {
     provideAnimationsAsync(),
     provideToastr({}),
     // servicios rest
-    provideHttpClient(), provideAnimationsAsync()
+    // provideHttpClient(), provideAnimationsAsync()
+    provideHttpClient(withInterceptorsFromDi()),
+    {
+        provide:HTTP_INTERCEPTORS,
+        useClass:AddTokenInterceptor,
+        multi:true
+    }
   ]
 };
