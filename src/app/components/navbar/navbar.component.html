@@ -4,7 +4,17 @@
     <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button> -->
-    <button class="btn btn-outline-success" type="submit" [routerLink]="['/login']"  >Search</button>
+
+
+    <!-- 1 forma de redireccinar a un  componente  [routerLink]="['/login']" -->
+    <!-- <button class="btn btn-outline-success" type="submit" [routerLink]="['/login']"  >Search</button> -->
+
+
+
+    <!-- 2 forma  -->
+    <button class="btn btn-outline-success" type="submit" (click)="logout()" >Search</button>
+
+
 <!--
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">

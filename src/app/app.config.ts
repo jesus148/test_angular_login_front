@@ -12,6 +12,7 @@ export const appConfig: ApplicationConfig = {
     provideAnimationsAsync(),
     provideToastr({}),
     // servicios rest
-    provideHttpClient(), provideAnimationsAsync()
+    provideHttpClient(),
+     provideAnimationsAsync()
   ]
 };

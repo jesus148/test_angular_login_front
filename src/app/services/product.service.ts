@@ -43,22 +43,23 @@ export class ProductService {
   getProducts():Observable<Product[]>{
 
 
-    // obteniendo el token luego de entrar o loguearme
-    // ver la variable q lop guarda en el > login.component.ts
-    const token= localStorage.getItem('token');
+    // // esto lo haremos en el add-token.interceptor-------------------------
+    // // obteniendo el token luego de entrar o loguearme
+    // // ver la variable q lop guarda en el > login.component.ts
+    // const token= localStorage.getItem('token');
 
+    // // headers
+    // // Las cabeceras (en inglés headers) HTTP permiten al cliente y al servidor enviar información adicional junto a una petición o respuesta.
+    // // en el backen esta en el validator-token.ts
+    // const headers = new HttpHeaders().set('authorization' , `Bearer ${token}`);
 
-    // headers
-    // Las cabeceras (en inglés headers) HTTP permiten al cliente y al servidor enviar información adicional junto a una petición o respuesta.
-    // en el backen esta en el validator-token.ts
-    const headers = new HttpHeaders().set('authorization' , `Bearer ${token}`);
-
-    // > verificar el f12 > el token obtenido > network> name(product)> selecciona todo > encabezados > autorization
+    // // > verificar el f12 > el token obtenido > network> name(product)> selecciona todo > encabezados > autorization
+    // // -------------------------------------------------------------------
 
 
     // obtiene la data pero debe enviarle el token
                                       //  peticion                           token dentro de un objeto , 2 headers es la constante
-    return this.http.get<Product[]>(`${this.myAppUrl}${this.myApiUrl}` , {headers :headers});
+    return this.http.get<Product[]>(`${this.myAppUrl}${this.myApiUrl}`);
   }
   // -------------------------
 

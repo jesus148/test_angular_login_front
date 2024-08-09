@@ -17,9 +17,9 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
-import { HTTP_INTERCEPTORS } from "@angular/common/http";
-import { AddTokenInterceptor } from "./utils/add-token.interceptor";
-
+import {  HTTP_INTERCEPTORS } from '@angular/common/http';
+import { addTokensInterceptor } from './utils/add-tokens.interceptor';
+import { ErrorService } from './services/error.service';
 
 // ACA COLOCAMOS TODAS LAS IMPORTACIONES DE ANGULAR
 
@@ -51,16 +51,21 @@ import { AddTokenInterceptor } from "./utils/add-token.interceptor";
     ToastrModule.forRoot({
       timeOut: 40000, //tiempo mensjaes
       positionClass: 'toast-bottom-right',
-      preventDuplicates: true,
+      preventDuplicates: true
     }),
+
     ],
 
 
     // para los interceptores
     // useClass : AddTokenInterceptor :interceptor
-    providers:[
-      {provide : HTTP_INTERCEPTORS , useClass : AddTokenInterceptor , multi:true}
-    ]
+    providers: [
+      {
+        provide: HTTP_INTERCEPTORS,
+        useFactory: () => addTokensInterceptor,
+        multi: true
+      }
+    ],
 
 
   })
