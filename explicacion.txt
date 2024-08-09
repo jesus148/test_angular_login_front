@@ -150,6 +150,17 @@ CREATE src/app/services/guards/is-logeed.guard.ts (137 bytes)
 
 
 
+PS C:\Users\jesus\Desktop\JESUS\ANGULAR\angular_1\front\frontend> ng g guard utils/auth
+? Which type of guard would you like to create?
+❯◉ CanActivate
+ ◯ CanActivateChild
+ ◯ CanDeactivate
+ ◯ CanMatch
+
+
+
+
+
 
 
 

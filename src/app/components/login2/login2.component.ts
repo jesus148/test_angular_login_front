@@ -5,7 +5,7 @@ import { FormsModule, FormBuilder, Validators , ReactiveFormsModule, FormControl
 import { CommonModule } from '@angular/common';
 import { Login2Service } from '../../services/login2.service';
 import { ToastrService } from 'ngx-toastr';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login2',
@@ -39,7 +39,7 @@ export class Login2Component {
 
   // CUANDO INCIA EL COMPONENTE
   constructor(private loginService:Login2Service ,
-    private FormBuilder: FormBuilder ,     private toastr: ToastrService
+    private FormBuilder: FormBuilder ,     private toastr: ToastrService ,   private router: Router
     //agregar esto para las validaciones recordar importar
   ) {
 
@@ -49,21 +49,42 @@ export class Login2Component {
 
 
 
+
+
+  // metodo loguearse
   registra(){
+    // verfica validacion
     if(!this.formValidar.valid) {
 
       this.toastr.success('todos los campos son obligatorios' , 'succes');
     }
 
+    // obteniendo la data
     const usuario = this.formValidar.controls['usuario'].value!.trim();
     const password = this.formValidar.controls['password'].value!.trim();
 
+
+    // llama al servicio y le envia
     this.loginService.logueo(usuario, password).subscribe((resp:any) => {
       // localStorage.setItem('usuario', JSON.stringify(resp.usuario));
       this.loginService.usuario = resp.usuario;
       this.loginService.islogedd = true;
 
       console.log( resp);
+
+      // verifica la data del back pa redireccionar a otro componente
+      // usuario.role  : debe ser igual en el backend
+      if(resp.usuario.role ===  'FINZ'){
+        this.router.navigate(['/dashboard'])
+
+      }
+
+
+      if(resp.usuario.rol ===  'FINZ'){
+        this.router.navigateByUrl('[/dashboard]')
+      }
+
+
 
     }, (err) => {
       // this.messagesService.showError(err.error.message);

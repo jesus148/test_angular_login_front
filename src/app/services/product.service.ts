@@ -40,27 +40,28 @@ export class ProductService {
   // metodo para obtener todos los produtos esto es una peticion
   // nesecita un token
   // ---descomentar esto
-  getProducts():Observable<Product[]>{
+  // getProducts():Observable<Product[]>{
 
 
-    // obteniendo el token luego de entrar o loguearme
-    // ver la variable q lop guarda en el > login.component.ts
-    const token= localStorage.getItem('token');
+  //   // obteniendo el token luego de entrar o loguearme
+  //   // ver la variable q lop guarda en el > login.component.ts
+  //   const token= localStorage.getItem('token');
 
 
-    // headers
-    // Las cabeceras (en inglés headers) HTTP permiten al cliente y al servidor enviar información adicional junto a una petición o respuesta.
-    // en el backen esta en el validator-token.ts
-    const headers = new HttpHeaders().set('authorization' , `Bearer ${token}`);
+  //   // headers
+  //   // Las cabeceras (en inglés headers) HTTP permiten al cliente y al servidor enviar información adicional junto a una petición o respuesta.
+  //   // en el backend esta en el validator-token.ts
+  //   // lo seteas la variable es la authorization
+  //   const headers = new HttpHeaders().set('authorization' , `Bearer ${token}`);
 
-    // > verificar el f12 > el token obtenido > network> name(product)> selecciona todo > encabezados > autorization
+  //   // > verificar el f12 > el token obtenido > network> name(product)> selecciona todo > encabezados > autorization
 
 
-    // obtiene la data pero debe enviarle el token
-                                      //  peticion                           token dentro de un objeto , 2 headers es la constante
-    return this.http.get<Product[]>(`${this.myAppUrl}${this.myApiUrl}` , {headers :headers});
-  }
-  // -------------------------
+  //   // obtiene la data pero debe enviarle el token
+  //                                     //  peticion                           token dentro de un objeto , 2 headers es la                                         constante
+  //   return this.http.get<Product[]>(`${this.myAppUrl}${this.myApiUrl}` , {headers :headers});
+  // }
+  // // -------------------------
 
 
 
@@ -72,11 +73,11 @@ export class ProductService {
 
   // 2 FORMA usamos mediante un interceptor en el
   // src\app\utils\add-token.interceptor.ts
-  //   getProducts():Observable<Product[]>{
+    getProducts():Observable<Product[]>{
 
 
-  //   return this.http.get<Product[]>(`${this.myAppUrl}${this.myApiUrl}`, ;
-  // }
+    return this.http.get<Product[]>(`${this.myAppUrl}${this.myApiUrl}`);
+  }
 
 
 

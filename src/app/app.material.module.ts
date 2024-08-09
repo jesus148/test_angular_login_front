@@ -18,7 +18,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
 import { HTTP_INTERCEPTORS } from "@angular/common/http";
-import { AddTokenInterceptor } from "./utils/add-token.interceptor";
+import { addToken3Interceptor } from './utils/add-token3.interceptor';
 
 
 // ACA COLOCAMOS TODAS LAS IMPORTACIONES DE ANGULAR
@@ -58,8 +58,9 @@ import { AddTokenInterceptor } from "./utils/add-token.interceptor";
 
     // para los interceptores
     // useClass : AddTokenInterceptor :interceptor
+    // en angular 18 > son funciones por eso usamos el usevalue
     providers:[
-      {provide : HTTP_INTERCEPTORS , useClass : AddTokenInterceptor , multi:true}
+      {provide : HTTP_INTERCEPTORS , useValue : addToken3Interceptor , multi:true}
     ]
 
 

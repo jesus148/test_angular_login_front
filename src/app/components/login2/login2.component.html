@@ -2,59 +2,85 @@
 
 
 
- <div class="contenedor flex justify-center content-center" >
+<div class="contenedor flex justify-center content-center" >
+
+
+  <img src="assets/images/work.jpg"  alt="Descripción de la imagen" class="full-image">
 
 
 
+  <div class="contenedor_2 h-5/6 w-11/12 ">
 
-  <div class="bg-slate-100 ">
-
-    <form [formGroup]="formValidar" class="m-12" >
-
-      <div  class="row "  style="margin-top: 3%">
-                  <mat-form-field class="col-12">
-                      <mat-label>Nombre</mat-label>
-
-                      <input  matInput [(ngModel)] ="username" formControlName="usuario" >
-
-                      <mat-hint style="color: red;" *ngIf="formValidar.controls.usuario.touched" >
-
-                        <span *ngIf="formValidar.controls.usuario.hasError('required')">
-                            La descripción es requerida
-                        </span>
-                        <span *ngIf="formValidar.controls.usuario.hasError('pattern')">
-                          La descripción es de 3 a 30 caracteres
-                      </span>
-
-                    </mat-hint>
-
-                  </mat-form-field>
+    <div class="bg-green-700 contenedor_2_3 w-10/12">
 
 
+    </div>
+
+
+
+    <div class="bg-slate-100 contenedor_2_4 w-1/2  justify-center content-center grid ">
+
+      <div class="">
+        <form [formGroup]="formValidar" class="m-12 grid grid-cols-1 gap-7" >
+
+          <div  class="grid grid-cols"  style="margin-top: 3%">
+                      <mat-form-field class="col-12">
+                          <mat-label>Nombre</mat-label>
+
+                          <input  matInput [(ngModel)] ="username" formControlName="usuario" >
+
+                          <mat-hint style="color: red;" *ngIf="formValidar.controls.usuario.touched" >
+
+                            <span *ngIf="formValidar.controls.usuario.hasError('required')">
+                                el usuario es requerida
+                            </span>
+                            <span *ngIf="formValidar.controls.usuario.hasError('pattern')">
+                              el nombre de es de 3 a 30 caracteres
+                          </span>
+
+                        </mat-hint>
+
+                      </mat-form-field>
+
+
+          </div>
+
+          <div class="row">
+            <mat-form-field class="col-12">
+              <mat-label>Password</mat-label>
+
+              <input type="password"  matInput [(ngModel)] ="password" formControlName="password" >
+              <mat-hint style="color: red;" *ngIf="formValidar.controls.password.touched">
+                <span *ngIf="formValidar.controls.password.hasError('required')">
+                  Password es requerida
+              </span>
+            </mat-hint>
+
+          </mat-form-field>
+
+          </div>
+
+
+          <div class="row flex justify-end">
+
+            <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#">
+              Restablecer Contraseña?
+            </a>
+          </div>
+
+          <div class="row">
+            <meta name="apple-mobile-web-app-capable" content="yes">
+            <div  class="row"  style="margin-top: 3%; margin-left: auto; margin-right: auto; max-width: fit-content;" >
+        <button mat-flat-button type="submit" [disabled]="formValidar.invalid" class="gbg-blue-500 bg-blue-700 text-white font-bold w-44  rounded focus:shadow-outline " (click)="registra()" > Ingresar</button>
+          </div>
+          </div>
+
+
+      </form>
       </div>
 
-      <div class="row">
-        <mat-form-field class="col-12">
-          <mat-label>Password</mat-label>
 
-          <input  matInput [(ngModel)] ="password" formControlName="password" >
-          <mat-hint style="color: red;" *ngIf="formValidar.controls.password.touched">
-            <span *ngIf="formValidar.controls.password.hasError('required')">
-              Password es requerida
-          </span>
-        </mat-hint>
-
-      </mat-form-field>
-
-      </div>
-
-      <meta name="apple-mobile-web-app-capable" content="yes">
-      <div  class="row"  style="margin-top: 3%; margin-left: auto; margin-right: auto; max-width: fit-content;" >
-  <button type="submit" [disabled]="formValidar.invalid" class="gbg-blue-500 bg-blue-700 text-white font-bold py-2 px-4 rounded" (click)="registra()">Ingresar</button>
-      </div>
-
-  </form>
-
+    </div>
   </div>
 
 
@@ -62,5 +88,8 @@
 
 
 
- </div>
 
+
+
+
+ </div>

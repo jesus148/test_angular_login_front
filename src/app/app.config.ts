@@ -4,7 +4,6 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptors, withInterceptorsFromDi } from '@angular/common/http';
 import { routes } from './app.routes';
 import { provideToastr } from 'ngx-toastr';
-import { AddTokenInterceptor } from './utils/add-token.interceptor';
 import { addToken3Interceptor } from './utils/add-token3.interceptor';
 
 export const appConfig: ApplicationConfig = {
@@ -21,6 +20,7 @@ export const appConfig: ApplicationConfig = {
         useClass:AddTokenInterceptor,
         multi:true
     } */
+        // para interceptores y servcios  rest
    provideHttpClient(withInterceptors([addToken3Interceptor]))
   ]
 };

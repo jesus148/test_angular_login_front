@@ -7,6 +7,9 @@ import { SignInComponent } from './components/sign-in/sign-in.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { Login2Component } from './components/login2/login2.component';
 
+// guards
+import { authGuard } from './utils/auth.guard';
+
 
 
 // RUTEO DE LOS COMPONENTES
@@ -18,17 +21,22 @@ export const routes: Routes = [
 
 
 // cuando esta vacio la url
-  {path:'' , redirectTo:'login' , pathMatch : 'full'},
+  {path:'' , redirectTo:'login2' , pathMatch : 'full'},
 
   // rutas a componentes
   {path:'login' , component: LoginComponent},
   {path:'singIn' , component: SignInComponent},
-  {path:'dashboard' , component: DashboardComponent},
+
+  // con el guard lo protege esta ruta del componente osea usuarios no autenticados accedan a ciertas rutas.
+  // canActivate:[authGuard]} : se ejecuta antes de entrar al componente
+//   CanActivate: Determina si una ruta puede ser activada.
+// CanActivateChild: Determina si las rutas hijas de una ruta pueden ser activadas.
+  {path:'dashboard' , component: DashboardComponent , canActivate:[authGuard]},
   {path:'login2' , component: Login2Component},
 
 
   // cuando escriben cualquier url q no existe
-  {path:'**' , redirectTo:'login' , pathMatch : 'full'}
+  {path:'**' , redirectTo:'login2' , pathMatch : 'full'}
 
 
 ];
